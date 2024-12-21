@@ -15,20 +15,20 @@ import {
 
 const Navbar = () => {
   return (
-    <nav className="sticky h-18 inset-x-0  top-0 w-full border-b border-gray-950 dark:border-gray-50 transition-all backdrop-blur-md">
+    <nav className="sticky h-18 inset-x-0  top-0 w-full border-b border-gray-950 dark:border-gray-50 dark:bg-stone-950 transition-all backdrop-blur-lg">
       <div className="flex justify-between items-center mx-2 md:mx-10 pt-5 pb-5">
-        <span className="text-3xl font-bold">E-Commerce</span>
+        <span className="text-3xl font-bold dark:text-stone-300">E-Commerce</span>
         <div className="hidden lg:flex justify-center items-center gap-4">
           <Search />
           <Input type="text" placeholder="Search" />
           <Button>Search</Button>
         </div>
-        <div className="hidden sm:block">
-          <Button variant="link">
+        <div className="hidden sm:block dark:text-stone-300">
+          <Button variant="link" className="dark:text-stone-300">
             <Link href="/">Home</Link>
           </Button>
-          <Button variant="link">Login</Button>
-          <Button variant="link">Register</Button>
+          <Button variant="link" className="dark:text-stone-300">Login</Button>
+          <Button variant="link" className="dark:text-stone-300">Register</Button>
           <ThemeSwitcher />
         </div>
         <div className="block sm:hidden">

@@ -1,11 +1,11 @@
-import Footer from "@/components/app-components/footer/Footer";
+import FirstBlock from "@/components/app-components/home-page/FirstBlock";
 
 
 export default function Home() {
   return (
     <div className="">
-      home page
-      <Footer/>
+      <FirstBlock />
+      
     </div>
   );
 }
