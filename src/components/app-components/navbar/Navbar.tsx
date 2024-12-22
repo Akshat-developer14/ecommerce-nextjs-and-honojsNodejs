@@ -17,7 +17,9 @@ const Navbar = () => {
   return (
     <nav className="sticky h-18 inset-x-0  top-0 w-full border-b border-gray-950 dark:border-gray-50 dark:bg-stone-950 transition-all backdrop-blur-lg">
       <div className="flex justify-between items-center mx-2 md:mx-10 pt-5 pb-5">
-        <span className="text-3xl font-bold dark:text-stone-300">E-Commerce</span>
+        <span className="text-3xl font-bold dark:text-stone-300">
+          E-Commerce
+        </span>
         <div className="hidden lg:flex justify-center items-center gap-4">
           <Search />
           <Input type="text" placeholder="Search" />
@@ -28,22 +30,26 @@ const Navbar = () => {
             <Link href="/">Home</Link>
           </Button>
           <Button variant="link" className="dark:text-stone-300">
-            <Link href="/login">
-            Login
-            </Link>
-            </Button>
-          <Button variant="link" className="dark:text-stone-300">Register</Button>
+            <Link href="/login">Login</Link>
+          </Button>
+          <Button variant="link" className="dark:text-stone-300">
+            <Link href="/register">Register</Link>
+          </Button>
           <ThemeSwitcher />
         </div>
         <div className="block sm:hidden">
           <DropdownMenu>
-            <DropdownMenuTrigger><Menu /></DropdownMenuTrigger>
+            <DropdownMenuTrigger>
+              <Menu />
+            </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>Menu</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Login</DropdownMenuItem>
               <DropdownMenuItem>Register</DropdownMenuItem>
-              <DropdownMenuItem><ThemeSwitcher/></DropdownMenuItem>
+              <DropdownMenuItem>
+                <ThemeSwitcher />
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

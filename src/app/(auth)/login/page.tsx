@@ -1,8 +1,8 @@
-"use client"
- 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { Button } from "@/components/ui/button"
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -11,34 +11,122 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import {formSchema} from "@/schemas/loginSchema"
-import * as z from "zod"
- 
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { loginSchema } from "@/schemas/loginSchema";
+import * as z from "zod";
+
 const page = () => {
-    // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof loginSchema>>({
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     },
-  })
+  });
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof loginSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values)
+    console.log(values);
   }
 
   return (
-    <div className="p-20">
-      <div className="border-2 rounded-md border-stone-500 p-10">
-        login
+    <div className="p-5 sm:p-16 lg:p-36 bg-stone-100">
+      <div className="border-2 rounded-md bg-stone-200 border-stone-500 text-stone-900 p-3 sm:p-10 shadow-2xl">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <FormField
+              control={form.control}
+              name="username"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Username</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="username"
+                      {...field}
+                      className="border-stone-500"
+                    />
+                  </FormControl>
+                  <FormDescription className="text-stone-700">
+                    This is your public display name.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="email@example.com"
+                      {...field}
+                      className="border-stone-500"
+                    />
+                  </FormControl>
+                  <FormDescription className="text-stone-700">
+                    Enter the email on which you want to receive notifications.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="password"
+                      type="password"
+                      {...field}
+                      className="border-stone-500"
+                    />
+                  </FormControl>
+                  <FormDescription className="text-stone-700">
+                    Enter a password minimum 8 characters long.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="confirmPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Confirm Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Confirm Password"
+                      type="password"
+                      {...field}
+                      className="border-stone-500"
+                    />
+                  </FormControl>
+                  <FormDescription className="text-stone-700">
+                    Confirm your password.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit">Submit</Button>
+          </form>
+        </Form>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
