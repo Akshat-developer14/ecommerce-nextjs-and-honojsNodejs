@@ -27,7 +27,11 @@ const Navbar = () => {
           <Button variant="link" className="dark:text-stone-300">
             <Link href="/">Home</Link>
           </Button>
-          <Button variant="link" className="dark:text-stone-300">Login</Button>
+          <Button variant="link" className="dark:text-stone-300">
+            <Link href="/login">
+            Login
+            </Link>
+            </Button>
           <Button variant="link" className="dark:text-stone-300">Register</Button>
           <ThemeSwitcher />
         </div>
