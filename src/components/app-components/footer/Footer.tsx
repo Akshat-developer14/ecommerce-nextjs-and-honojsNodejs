@@ -63,16 +63,18 @@ const Footer = () => {
       <hr className="my-4" />
       
       <div className="flex flex-wrap justify-between items-center w-full p-4">
-        <span className="font-thin text-gray-500 dark:text-zinc-900 tracking-wider w-full text-center lg:text-left">
+        <span className="md:flex font-thin w-full text-gray-500 dark:text-zinc-900 tracking-wider text-center lg:text-left">
+          <span className="w-full pt-3"> 
           Shop.co &copy; 2022-2026. All rights reserved.
-        </span>
-        <div className="flex gap-4 w-full justify-center lg:justify-end p-4">
+          </span>
+        <span className="flex gap-4 w-full justify-center lg:justify-end">
           <Image src="/visa.png" alt="visa" width={50} height={50} />
           <Image src="/mastercard.png" alt="mastercard" width={50} height={50} />
           <Image src="/paypal.png" alt="paypal" width={50} height={50} />
           <Image src="/applepay.png" alt="applepay" width={50} height={50} />
           <Image src="/gpay.png" alt="googlepay" width={50} height={50} />
-        </div>
+        </span>
+        </span>
       </div>
     </div>
   );
