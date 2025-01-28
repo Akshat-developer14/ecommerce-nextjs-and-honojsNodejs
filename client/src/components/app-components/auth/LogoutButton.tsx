@@ -39,7 +39,7 @@ const LogoutButton = () => {
   };
 
   return (
-    <Button variant='link' onClick={handleLogout}>
+    <Button onClick={handleLogout}>
       Logout
     </Button>
   );

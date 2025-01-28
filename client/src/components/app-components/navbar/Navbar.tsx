@@ -13,13 +13,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import LogoutButton from "../auth/LogoutButton";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store/store";
+import UserDetailsIcon from "@/components/user-details/UserDetailsIcon";
 
 const Navbar = () => {
-  const isAuthenticated = useSelector((state: RootState) => state.auth.status);
   const userData = useSelector((state: RootState) => state.auth.userData);
+  const isAuthenticated = useSelector((state: RootState) => state.auth.status);
+
+  //check admin
+  const isAdmin = userData?.role === "admin";
+
   return (
     <nav className="sticky h-18 inset-x-0  top-0 w-full border-b border-gray-950 dark:border-gray-50 dark:bg-stone-950 transition-all backdrop-blur-lg">
       <div className="flex justify-between items-center mx-2 md:mx-10 pt-5 pb-5">
@@ -35,12 +39,16 @@ const Navbar = () => {
           <Button variant="link" className="dark:text-stone-300">
             <Link href="/">Home</Link>
           </Button>
-          <Button variant="link" className="dark:text-stone-300">
-            <Link href="/dashboard">Dashboard</Link>
-          </Button>
           {isAuthenticated ? (
             <>
-              <LogoutButton />
+              {
+                isAdmin && (
+                  <Button variant="link">
+                    <Link href="/admin/dashboard">Dashboard</Link>
+                  </Button>
+                )
+              }
+              <UserDetailsIcon />
             </>
           ) : (
             <>
